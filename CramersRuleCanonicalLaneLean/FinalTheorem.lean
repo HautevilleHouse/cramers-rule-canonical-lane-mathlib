@@ -1,19 +1,20 @@
 import CramersRuleCanonicalLaneLean.GateLemmas
 
+
 namespace HautevilleHouse
 namespace CramersRuleCanonicalLaneLean
 
-/--
-Cramer's rule for linear systems
+/-!
+Cramer's rule
+
+Constrained admissible-class closure of the theorem.
+Full formalization of the proof is future work.
 -/
 def constrained_theorem_closure : Prop :=
-  bridgeClosed (defaultAdmissibleClass ()) ∧
-  gateClosed (defaultAdmissibleClass ())
+  ∀ (A : Matrix ℝ) [Invertible A] (b : ℝⁿ), x_i = det(A_i)/det(A) where A_i replaces column i with b
 
 theorem constrained_theorem_closure_true : constrained_theorem_closure := by
-  refine And.intro ?_ ?_
-  · exact bridge_from_admissible_class _
-  · exact gate_from_admissible_class _
+  sorry
 
 end CramersRuleCanonicalLaneLean
 end HautevilleHouse
